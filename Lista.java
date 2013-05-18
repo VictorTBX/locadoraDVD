@@ -27,4 +27,11 @@ public class Lista {
       fim = novo;      
     } quantidade++;
   }
+  
+  public Node removeDvd(DVD dvd){
+    if(isEmpty) {
+      return 
+    }
+  }
+  
 }
