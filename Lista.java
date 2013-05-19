@@ -67,6 +67,38 @@ public class Lista {
         quantidade--;
         return aux;
     }
+    
+    public void alugar(String nome){
+        Node aux = inicio;
+        if (isEmpty()) {
+            System.out.println("DVD não encontrado.");
+        } else {
+            while (!(aux.getDvd().getTitulo().equals(nome)) && (aux != fim)) {
+                aux = aux.getProximo();
+            }
+            if (!(aux.getDvd().getTitulo().equals(nome)) && (aux == fim)) {
+                System.out.println("DVD não encontrado.");
+            } else {
+                aux.getDvd().setDisponivel(false);
+            }
+        }
+    }
+    
+    public void devolver(String nome){
+        Node aux = inicio;
+        if (isEmpty()) {
+            System.out.println("DVD não encontrado.");
+        } else {
+            while (!(aux.getDvd().getTitulo().equals(nome)) && (aux != fim)) {
+                aux = aux.getProximo();
+            }
+            if (!(aux.getDvd().getTitulo().equals(nome)) && (aux == fim)) {
+                System.out.println("DVD não encontrado.");
+            } else {
+                aux.getDvd().setDisponivel(true);
+            }
+        }
+    }
 
     public void display() {
         Node aux = inicio;
