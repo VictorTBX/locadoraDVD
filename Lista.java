@@ -40,7 +40,7 @@ public class Lista {
         if (isEmpty()) {
             throw new Error("Lista Vazia");
         }
-        while (aux.getDvd().getTitulo().equals(nome) && (aux != null)) {
+        while (!(aux.getDvd().getTitulo().equals(nome)) && (aux != null)) {
             aux = aux.getProximo();
         }
         if (aux == null) {
@@ -51,15 +51,15 @@ public class Lista {
                 aux.getProximo().setAnterior(aux.getAnterior());
 
             } else {
-                if (aux == fim) {
-                    aux.getAnterior().setProximo(null);
-                    fim = aux.getAnterior();
+                if (aux.getProximo() == null && aux.getAnterior() == null) {
+                    fim = inicio = null;
                 } else {
                     if (aux == inicio) {
                         aux.getProximo().setAnterior(null);
                         inicio = aux.getProximo();
                     } else {
-                        fim = inicio = null;
+                        aux.getAnterior().setProximo(null);
+                        fim = aux.getAnterior();
                     }
                 }
             }
