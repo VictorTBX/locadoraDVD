@@ -24,14 +24,22 @@ public class Lista {
       fim.setProximo(n);
       n.setAnterior(fim);
       n.setProximo(null);
-      fim = novo;      
+      fim = n;      
     } quantidade++;
   }
   
-  public Node removeDvd(DVD dvd){
+  public Node remove(DVD dvd){
     if(isEmpty) {
       return 
     }
   }
   
+  public void display() {
+        Node aux = inicio;
+        for (int i = 0; i < quantidade; i++) {
+            System.out.print(aux + " ");
+            aux = aux.getProximo();
+        }
+        System.out.println("");
+    }  
 }
