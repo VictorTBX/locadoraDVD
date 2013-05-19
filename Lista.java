@@ -40,10 +40,10 @@ public class Lista {
         if (isEmpty()) {
             throw new Error("Lista Vazia");
         }
-        while (!(aux.getDvd().getTitulo().equals(nome)) && (aux != null)) {
+        while (!(aux.getDvd().getTitulo().equals(nome)) && (aux != fim)) {
             aux = aux.getProximo();
         }
-        if (aux == null) {
+        if (aux == fim && !(aux.getDvd().getTitulo().equals(nome))) {
             throw new Error("Valor não encontrado");
         } else {
             if (aux.getProximo() != null && aux.getAnterior() != null) {
