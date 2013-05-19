@@ -10,6 +10,7 @@ public class DVD {
     this.titulo = titulo;
     this.ano = ano;
     this.estilo = estilo;
+    disponivel = true;
   }
   
   public int getCodigo(){
@@ -43,3 +44,12 @@ public class DVD {
   public void setEstilo(String estilo){
     this.estilo = estilo;
   }
+  
+  public boolean getDisponivel(){
+    return disponivel;
+  }
+  
+  public void setDisponivel(boolean disponivel){
+    this.disponivel = disponivel;
+  }
+}
