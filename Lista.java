@@ -35,22 +35,37 @@ public class Lista {
         return fim;
     } 
 
-    public Node remove(DVD dvd) {
-        String nome = dvd.getTitulo();
+    public Node remove(String nome) {
         Node aux = inicio;
         if (isEmpty()) {
             throw new Error("Lista Vazia");
         }
-        while(aux.getDvd().getTitulo().equals(nome) && (aux != null)) {
+        while (aux.getDvd().getTitulo().equals(nome) && (aux != null)) {
             aux = aux.getProximo();
         }
         if (aux == null) {
             throw new Error("Valor não encontrado");
         } else {
-            aux.getAnterior().setProximo(aux.getProximo());
-            aux.getProximo().setAnterior(aux.getAnterior());
-            return aux;
+            if (aux.getProximo() != null && aux.getAnterior() != null) {
+                aux.getAnterior().setProximo(aux.getProximo());
+                aux.getProximo().setAnterior(aux.getAnterior());
+
+            } else {
+                if (aux == fim) {
+                    aux.getAnterior().setProximo(null);
+                    fim = aux.getAnterior();
+                } else {
+                    if (aux == inicio) {
+                        aux.getProximo().setAnterior(null);
+                        inicio = aux.getProximo();
+                    } else {
+                        fim = inicio = null;
+                    }
+                }
+            }
         }
+        quantidade--;
+        return aux;
     }
 
     public void display() {
