@@ -35,15 +35,15 @@ public class Lista {
         return fim;
     } 
 
-    public Node remove(String nome) {
+    public Node remove(int codigo) {
         Node aux = inicio;
         if (isEmpty()) {
             throw new Error("Lista Vazia");
         }
-        while (!(aux.getDvd().getTitulo().equals(nome)) && (aux != fim)) {
+        while (!(aux.getDvd().getCodigo() == codigo) && (aux != fim)) {
             aux = aux.getProximo();
         }
-        if (aux == fim && !(aux.getDvd().getTitulo().equals(nome))) {
+        if (aux == fim && !(aux.getDvd().getCodigo() == codigo)) {
             throw new Error("Valor não encontrado");
         } else {
             if (aux.getProximo() != null && aux.getAnterior() != null) {
