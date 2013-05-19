@@ -35,7 +35,7 @@ public class Lista {
         return fim;
     } 
 
-    public Node remove(int codigo) {
+    public Node vender(int codigo) {
         Node aux = inicio;
         if (isEmpty()) {
             throw new Error("Lista Vazia");
