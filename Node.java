@@ -9,6 +9,11 @@ public class Node {
     anterior = null;
   }
   
+  @Override
+    public String toString() {
+        return String.valueOf(dvd);
+    }
+  
   public DVD getDvd() {
     return dvd;
   }
