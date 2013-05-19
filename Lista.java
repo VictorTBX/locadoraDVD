@@ -99,6 +99,14 @@ public class Lista {
             }
         }
     }
+    
+    public void disponibilidade(DVD dvd) {
+        if(dvd.getDisponivel()) {
+            System.out.println("DVD está disponível.");
+        } else {
+            System.out.println("DVD não está disponível.");
+        }
+    }
 
     public void display() {
         Node aux = inicio;
