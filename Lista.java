@@ -80,7 +80,8 @@ public class Lista {
         if (isEmpty()) {
             System.out.println("DVD não encontrado.");
         } else {
-            while (aux.getDVD.getDisponivel() == true) {
+            while (aux.getDVD.getDisponivel() == false) {
+                aux = aux.getProximo(); 
                 while (!(aux.getDvd().getTitulo().equals(nome)) && (aux != fim)) {
                     aux = aux.getProximo();                
                 }
@@ -99,7 +100,8 @@ public class Lista {
         if (isEmpty()) {
             System.out.println("DVD não encontrado.");
         } else {
-            while (aux.getDVD.getDisponivel() == false) {
+            while (aux.getDVD.getDisponivel() == true) {
+                aux = aux.getProximo(); 
                 while (!(aux.getDvd().getTitulo().equals(nome)) && (aux != fim)) {
                     aux = aux.getProximo();                
                 }
