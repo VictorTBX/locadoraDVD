@@ -1,4 +1,5 @@
 public class Lista {
+
     private Node inicio;
     private Node fim;
     private int quantidade;
@@ -17,14 +18,15 @@ public class Lista {
     }
 
     public void addEnd(Node n) {
-        if(isEmpty()) {
+        if (isEmpty()) {
             inicio = fim = n;
         } else {
             fim.setProximo(n);
             n.setAnterior(fim);
             n.setProximo(null);
-            fim = n;      
-        } quantidade++;
+            fim = n;
+        }
+        quantidade++;
     }
 
     public Node getBegin() {
@@ -33,7 +35,7 @@ public class Lista {
 
     public Node getEnd() {
         return fim;
-    } 
+    }
 
     public Node vender(int codigo) {
         Node aux = inicio;
@@ -71,13 +73,16 @@ public class Lista {
     public void alugar(String nome){
         Node aux = inicio;
         if (isEmpty()) {
-            System.out.println("DVD não encontrado.");
+            System.out.println("DVD não disponivel para locaçao.");
         } else {
             while (!(aux.getDvd().getTitulo().equals(nome)) && (aux != fim)) {
                 aux = aux.getProximo();
+                if (aux.getDvd().getDisponivel() == false) {
+                    aux = aux.getProximo();
+                }
             }
             if (!(aux.getDvd().getTitulo().equals(nome)) && (aux == fim)) {
-                System.out.println("DVD não encontrado.");
+                System.out.println("DVD não disponivel para locaçao.");
             } else {
                 aux.getDvd().setDisponivel(false);
             }
@@ -100,19 +105,43 @@ public class Lista {
         }
     }
     
-    public void disponibilidade(DVD dvd) {
-        if(dvd.getDisponivel()) {
-            System.out.println("DVD está disponível.");
+    public void disponibilidade(int codigo) {
+        Node aux = inicio;        
+        if (isEmpty()) {
+            System.out.println("DVD nao encontrado");
         } else {
-            System.out.println("DVD não está disponível.");
+            while ((aux.getDvd().getCodigo() != codigo) && (aux != fim)) {
+                aux = aux.getProximo();
+            }
+            if (aux.getDvd().getCodigo() == codigo && (aux == fim)) {            
+                if (aux.getDvd().getDisponivel()) {
+                    System.out.println("DVD disponivel"); 
+                } else {
+                    System.out.println("DVD nao disponivel"); 
+                }                              
+            } else {
+                if (aux.getDvd().getCodigo() == codigo && (aux != fim)) {           
+                if (aux.getDvd().getDisponivel()) {
+                    System.out.println("DVD disponivel"); 
+                } else {
+                    System.out.println("DVD nao disponivel"); 
+                }
+            } else {
+                    if (aux.getDvd().getCodigo() != codigo) {
+                        System.out.println("DVD nao encontrado");
+                    }                    
+                }
         }
     }
+}
 
     public void display() {
         Node aux = inicio;
         for (int i = 0; i < quantidade; i++) {
             System.out.print(aux + " ");
-            aux = aux.getProximo();
+            if (aux.getProximo() != null) {
+                aux = aux.getProximo();                        
+            }
         }
         System.out.println("");
     }
