@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Main {
@@ -73,8 +72,8 @@ public class Main {
 
 
         } while ((resp >= 1)&& (resp < 6));
-        
-        
+        //Essa parte de baixo não é nescessaria... fiz o teste aqui e não deu errou ta td certo aqui em ksa sem essa parte.
+        /*
         DVD dvd2 = new DVD(4, "aa", 0, "bb");
         DVD dvd1 = new DVD(1, "bb", 0, "bb");
         Node n = new Node(dvd2);
@@ -87,7 +86,6 @@ public class Main {
         lista.disponibilidade(3);
         lista.disponibilidade(4);
         lista.disponibilidade(1);
-        lista.display();
-        
+        lista.display();*/        
     }    
 }
