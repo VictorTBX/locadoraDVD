@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Main {
@@ -5,10 +6,9 @@ public class Main {
         
       Scanner in = new Scanner(System.in);
         
-        int resp, codigo, cont = 0;
+        int resp, codigo;
         String nome;        
         Lista lista = new Lista();
-        Node aux = new Node();
         do {
             System.out.println("Menu:");
             System.out.println("1 - Adicionar dvd");
@@ -33,10 +33,11 @@ public class Main {
                     String estilo = in.next();                    
                     System.out.println();
                     System.out.println("Filme adicionado com sucesso.");
-                    DVD dvd = new DVD(codigo, titulo, ano, estilo);
-                    aux.setDvd(dvd);
+                    DVD dvd= new DVD(codigo, titulo, ano, estilo);                    
+                    Node aux = new Node(dvd);                                   
                     lista.addEnd(aux);
-                    lista.display();                    
+                    
+                    lista.display();
                     break;
                     
                 case 2:
