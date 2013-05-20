@@ -11,7 +11,7 @@ public class Node {
   
   @Override
     public String toString() {
-        return String.valueOf(dvd);
+        return String.valueOf(dvd.getTitulo());
     }
   
   public DVD getDvd() {
