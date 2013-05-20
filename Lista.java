@@ -40,13 +40,13 @@ public class Lista {
     public Node vender(int codigo) {
         Node aux = inicio;
         if (isEmpty()) {
-            throw new Error("Lista Vazia");
+            throw new Error("DVD indisponível para venda.");
         }
         while (!(aux.getDvd().getCodigo() == codigo) && (aux != fim)) {
             aux = aux.getProximo();
         }
         if (aux == fim && !(aux.getDvd().getCodigo() == codigo)) {
-            throw new Error("Valor não encontrado");
+            throw new Error("DVD indisponível para venda.");
         } else {
             if (aux.getDisponivel() == false){
                 throw new Error("DVD indisponível para venda.");
@@ -70,6 +70,7 @@ public class Lista {
                 }
             }
             quantidade--;
+            System.out.println("DVD vendido com sucesso.");
             return aux;
         }        
     }
@@ -77,7 +78,7 @@ public class Lista {
     public void alugar(String nome){
         Node aux = inicio;
         if (isEmpty()) {
-            System.out.println("DVD não disponivel para locaçao.");
+            System.out.println("DVD não encontrado.");
         } else {
             while (!(aux.getDvd().getTitulo().equals(nome)) && (aux != fim)) {
                 aux = aux.getProximo();
@@ -86,9 +87,10 @@ public class Lista {
                 }
             }
             if (!(aux.getDvd().getTitulo().equals(nome)) && (aux == fim)) {
-                System.out.println("DVD não disponivel para locaçao.");
+                System.out.println("DVD não encontrado.");
             } else {
                 aux.getDvd().setDisponivel(false);
+                System.out.println("DVD alugado com sucesso.");
             }
         }
     }
@@ -108,6 +110,7 @@ public class Lista {
                 System.out.println("DVD não encontrado.");
             } else {
                 aux.getDvd().setDisponivel(true);
+                System.out.println("DVD devolvido com sucesso.");
             }
         }
     }
@@ -115,27 +118,27 @@ public class Lista {
     public void disponibilidade(int codigo) {
         Node aux = inicio;        
         if (isEmpty()) {
-            System.out.println("DVD nao encontrado");
+            System.out.println("DVD não encontrado");
         } else {
             while ((aux.getDvd().getCodigo() != codigo) && (aux != fim)) {
                 aux = aux.getProximo();
             }
             if (aux.getDvd().getCodigo() == codigo && (aux == fim)) {            
                 if (aux.getDvd().getDisponivel()) {
-                    System.out.println("DVD disponivel"); 
+                    System.out.println("DVD disponível"); 
                 } else {
-                    System.out.println("DVD nao disponivel"); 
+                    System.out.println("DVD indisponível"); 
                 }                              
             } else {
                 if (aux.getDvd().getCodigo() == codigo && (aux != fim)) {           
                 if (aux.getDvd().getDisponivel()) {
-                    System.out.println("DVD disponivel"); 
+                    System.out.println("DVD disponível"); 
                 } else {
-                    System.out.println("DVD nao disponivel"); 
+                    System.out.println("DVD indisponível"); 
                 }
             } else {
                     if (aux.getDvd().getCodigo() != codigo) {
-                        System.out.println("DVD nao encontrado");
+                        System.out.println("DVD não encontrado");
                     }                    
                 }
         }
