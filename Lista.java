@@ -48,26 +48,30 @@ public class Lista {
         if (aux == fim && !(aux.getDvd().getCodigo() == codigo)) {
             throw new Error("Valor não encontrado");
         } else {
-            if (aux.getProximo() != null && aux.getAnterior() != null) {
-                aux.getAnterior().setProximo(aux.getProximo());
-                aux.getProximo().setAnterior(aux.getAnterior());
-
+            if (aux.getDisponivel() == false){
+                throw new Error("DVD indisponível para venda.");
             } else {
-                if (aux.getProximo() == null && aux.getAnterior() == null) {
-                    fim = inicio = null;
+                if (aux.getProximo() != null && aux.getAnterior() != null) {
+                    aux.getAnterior().setProximo(aux.getProximo());
+                    aux.getProximo().setAnterior(aux.getAnterior());
+    
                 } else {
-                    if (aux == inicio) {
-                        aux.getProximo().setAnterior(null);
-                        inicio = aux.getProximo();
+                    if (aux.getProximo() == null && aux.getAnterior() == null) {
+                        fim = inicio = null;
                     } else {
-                        aux.getAnterior().setProximo(null);
-                        fim = aux.getAnterior();
+                        if (aux == inicio) {
+                            aux.getProximo().setAnterior(null);
+                            inicio = aux.getProximo();
+                        } else {
+                            aux.getAnterior().setProximo(null);
+                            fim = aux.getAnterior();
+                        }
                     }
                 }
             }
-        }
-        quantidade--;
-        return aux;
+            quantidade--;
+            return aux;
+        }        
     }
     
     public void alugar(String nome){
