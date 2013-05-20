@@ -96,6 +96,9 @@ public class Lista {
         } else {
             while (!(aux.getDvd().getTitulo().equals(nome)) && (aux != fim)) {
                 aux = aux.getProximo();
+                if (aux.getDvd().getDisponivel() == true) {
+                    aux = aux.getProximo();
+                }
             }
             if (!(aux.getDvd().getTitulo().equals(nome)) && (aux == fim)) {
                 System.out.println("DVD não encontrado.");
